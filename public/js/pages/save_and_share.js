@@ -1,0 +1,1 @@
+timely.define("scripts/save_and_share",["jquery_timely","ai1ec_config","scripts/calendar","scripts/calendar/load_views"],function(e,t,n,r){var i=function(){console.log("SAS started")};return{start:i}}),timely.require(["scripts/save_and_share"],function(e){e.start()}),timely.define("pages/save_and_share",function(){});

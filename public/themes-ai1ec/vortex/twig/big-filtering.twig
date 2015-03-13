@@ -1,0 +1,71 @@
+<div class="ai1ec-bf-container"  {{ data_type | raw }}>
+
+	<div class="ai1ec-bf-header">
+		<div class="ai1ec-bf-select">
+			<select class="ai1ec-bf-selected" multiple
+				placeholder="{{ text_filter | e( 'html_attr' ) }}"></select>
+		</div>
+		<div class="ai1ec-bf-suggestions">
+			<button class="ai1ec-btn ai1ec-btn-default ai1ec-btn-sm"
+				data-toggle="ai1ec-button">
+				<i class="ai1ec-fa ai1ec-fa-filter"></i>
+				{{ text_suggestions }}
+				<span class="ai1ec-caret"></span>
+			</button>
+		</div>
+		<div class="ai1ec-bf-save-buttons">
+			<div class="ai1ec-hidden ai1ec-show-saved">
+				<a href="#" class="ai1ec-load-view ai1ec-btn ai1ec-btn-primary ai1ec-btn-sm" data-type="jsonp">
+					<i class="ai1ec-fa ai1ec-fa-star-o"></i>
+					<span>Saved Events</span>
+					<span class="ai1ec-saved-events-count"></span>
+					<span class="ai1ec-close-saved-events">
+						<i class="ai1ec-fa ai1ec-fa-times-circle"></i>
+					</span>
+				</a>
+			</div>
+			<div class="ai1ec-saved-events-exit ai1ec-hidden">
+				<a href="/" class="ai1ec-btn ai1ec-btn-primary ai1ec-btn-sm">
+					<i class="ai1ec-fa ai1ec-fa-times-circle"></i>
+					<span>Exit &laquo;<i></i>&raquo;</span>
+				</a>
+			</div>
+			<div class="ai1ec-saved-events">
+				<a href="#" class="ai1ec-btn ai1ec-btn-primary ai1ec-btn-sm"
+				   data-toggle="modal"
+				   data-target="#timely-share-modal">
+					<i class="ai1ec-fa ai1ec-fa-share"></i>
+					<span>Share Events</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="ai1ec-bf-filter-groups">
+		{% for group in groups %}
+			<div class="ai1ec-bf-filter-group">
+				<div class="ai1ec-bf-heading">
+					<i class="{{ group.icon | e( 'html_attr' ) }}"></i>
+					{{ group.name }}
+				</div>
+				<div class="ai1ec-bf-list">
+					{% for item in group.items %}
+					<div class="ai1ec-bf-item{% if 4 < loop.index %} ai1ec-hidden{% endif %}">
+						<a href="{{ item.href | e( 'html_attr' ) }}"
+						   data-term_id="{{ item.term_id | e( 'html_attr' ) }}"
+						   class="ai1ec-bf-item-link{% if item.term_id in selected_items %} ai1ec-active{% endif %}">
+						   {{ item.name | raw }}
+						</a>
+					</div>
+						{% if 4 == loop.index %}
+							<div class="ai1ec-bf-item">
+								<a href="#" class="ai1ec-bf-more">…</a>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+</div>
