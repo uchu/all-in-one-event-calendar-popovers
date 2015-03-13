@@ -89,26 +89,6 @@ class Ai1ec_Controller_Ai1ecsas extends Ai1ec_Base_License_Controller {
 			10,
 			2
 		);
-/*
-		$dispatcher->register_filter(
-			'ai1ec_below_toolbar',
-			array( 'view.bf-frontend', 'get_html_for_big_filtering' ),
-			10,
-			3
-		);
-		// Add new LESS file to parse queue.
-		$dispatcher->register_filter(
-			'ai1ec_less_files',
-			array( 'less.big-filtering', 'add_less_files' ),
-			10,
-			2
-		);
-
-		$dispatcher->register_filter(
-			'ai1ec_theme_args_filter-menu.twig',
-			array( 'view.bf-frontend', 'filter_menu_args' )
-		);
-*/
 	}
 
 	public function on_deactivation() {
