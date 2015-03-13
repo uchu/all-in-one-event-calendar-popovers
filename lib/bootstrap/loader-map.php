@@ -15,12 +15,6 @@
       'c' => 'Ai1ec_Controller_Ai1ecsas',
       'i' => 'g',
     ),
-    'Ai1ecsaBuilderFilter' => 
-    array (
-      'f' => AI1ECSAS_PATH . DIRECTORY_SEPARATOR . 'doc' . DIRECTORY_SEPARATOR . 'generator.php',
-      'c' => 'Ai1ecsaBuilderFilter',
-      'i' => 'n',
-    ),
     'Ai1ecsas_Frontend' => 
     array (
       'f' => AI1ECSAS_PATH . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'sas-frontend.php',
@@ -35,23 +29,11 @@
       'i' => 'g',
       'r' => 'y',
     ),
-    'Generator' => 
-    array (
-      'f' => AI1ECSAS_PATH . DIRECTORY_SEPARATOR . 'doc' . DIRECTORY_SEPARATOR . 'generator.php',
-      'c' => 'Generator',
-      'i' => 'g',
-    ),
     'controller.ai1ecsas' => 
     array (
       'f' => AI1ECSAS_PATH . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR . 'ai1ecsas.php',
       'c' => 'Ai1ec_Controller_Ai1ecsas',
       'i' => 'g',
-    ),
-    'generator' => 
-    array (
-      'f' => AI1ECSAS_PATH . DIRECTORY_SEPARATOR . 'doc' . DIRECTORY_SEPARATOR . 'generator.php',
-      'c' => 'Ai1ecsaBuilderFilter',
-      'i' => 'n',
     ),
     'javascript.save-and-share' => 
     array (
