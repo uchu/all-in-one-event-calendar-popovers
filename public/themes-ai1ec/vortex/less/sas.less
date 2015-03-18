@@ -1,0 +1,163 @@
+//
+// @file
+//
+// Adds LESS rules for Save and Share.
+//
+
+@import "bootstrap/mixins.less";
+
+// Save and Share buttons.
+.ai1ec-action-star {
+	.ai1ec-saved {
+		display: none !important;
+	}
+	&.ai1ec-selected {
+		.ai1ec-save {
+			display: none !important;
+		}
+		.ai1ec-saved {
+			display: inline !important;
+		}
+	}
+}
+.ai1ec-event:hover,
+.ai1ec-popover {
+	.ai1ec-actions {
+		display: block;
+	}
+}
+.ai1ec-actions {
+	text-align: center;
+	display: none;
+	a.ai1ec-action {
+		border-radius: 4px;
+		.ai1ec-box-shadow( inset 0 0 1px fade( @dropdown-link-hover-color, 50% ) );
+		cursor: pointer;
+		display: inline-block;
+		font-size: 0.9em;
+		line-height: 2em !important;
+		margin: 1px 0;
+		padding: 0 0.5em !important;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+	.ai1ec-action:hover,
+	.ai1ec-active > .ai1ec-action {
+		span {
+			display: inline;
+		}
+	}
+}
+
+// Agenda
+.ai1ec-agenda-view {
+	.ai1ec-event {
+		.ai1ec-actions {
+			margin: 0 10px;
+		}
+	}
+}
+
+// Stream view.
+.ai1ec-stream-view {
+	.ai1ec-actions {
+		float: right;
+		margin: 10px 0 10px 0;
+		@media (min-width: @screen-md) {
+			position: absolute;
+			right: 0px;
+		}
+		@media (max-width: @screen-sm) {
+			float: right;
+			display: block;
+			a {
+				display: block;
+				clear: both;
+				span {
+					display: none !important;
+				}
+			}
+		}
+	}
+}
+
+// Saved Events
+.ai1ec-save-and-share-buttons {
+	margin: 7px;
+	.ai1ec-saved-events {
+		margin-right: -7px;
+		float: left;
+		a.btn {
+			border-radius: 0 4px 4px 0;
+		}
+		@media (max-width: @screen-md) {
+			span {
+				display: none;
+			}
+		}
+	}
+	.ai1ec-show-saved {
+		float: left;
+		margin-right: 4px;
+		.ai1ec-close-saved-events {
+			display: none;
+		}
+		&.ai1ec-active {
+			.ai1ec-close-saved-events {
+				display: inline-block;
+			}
+		}
+		@media (max-width: @screen-md) {
+			span {
+				display: none;
+			}
+		}
+	}
+	.ai1ec-saved-events-exit {
+		float: left;
+		@media (max-width: @screen-md) {
+			span {
+				display: none;
+			}
+		}
+	}
+
+}
+
+// Sharing dialog
+#ai1ec-share-modal {
+	a:hover,
+	a:active,
+	a:focus {
+		color: #fff;
+	}
+	label {
+		font-weight: normal;
+	}
+	.ai1ec-share-dialog-buttons {
+		margin-top: 10px;
+	}
+	.ai1ec-form-inline .ai1ec-form-control {
+		@media (min-width: @screen-sm) {
+			display: inline-block;
+			width: auto;
+			vertical-align: middle;
+		}
+	}
+}
+.ai1ec-clear-saved-buttons {
+	text-align: center;
+	margin: 20px 0;
+	a {
+		background: red;
+		color: white !important;
+		margin: 3px;
+		&:hover {
+			background: #d00;
+		}
+		i {
+			font-size: 20px;
+		}
+	}
+}
+

@@ -20,14 +20,21 @@ class Ai1ecsas_Javascript_Save_And_Share extends Ai1ec_Base {
 	 * @return array
 	 */
 	public function add_js( array $files, $page_to_load ) {
-		if ( Ai1ec_Javascript_Controller::CALENDAR_PAGE_JS === $page_to_load ) {
-			$files[] = AI1ECSAS_PATH . '/public/js/pages/save_and_share.js';
-		}
-		if ( 'main_widget.js' === $page_to_load ) {
-			$files[] = array(
-				'url' => AI1ECSAS_URL . '/public/js/pages/save_and_share.js',
+		$script_path = AI1ECSAS_PATH . DIRECTORY_SEPARATOR . 'public' .
+				DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'scripts' .
+				DIRECTORY_SEPARATOR;
+		$script = $script_path . 'save_and_share.js';
+		if ( 'ai1ec_widget.js' === $page_to_load ) {
+			$script = array(
+				'url' => AI1ECSAS_URL . '/public/js/scripts/save_and_share.js',
 				'id'  => 'save_and_share'
 			);
+		}
+		if ( 'main_widget.js' === $page_to_load ) {
+			$script = null;
+		}
+		if ( ! empty( $script ) ) {
+			$files[] = $script;
 		}
 		return $files;
 	}

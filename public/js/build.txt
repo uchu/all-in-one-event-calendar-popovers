@@ -1,5 +1,4 @@
 
-pages/save_and_share.js
+scripts/save_and_share.js
 ----------------
 scripts/save_and_share.js
-pages/save_and_share.js

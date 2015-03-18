@@ -1,0 +1,88 @@
+<div class="ai1ec-modal ai1ec-fade" id="ai1ec-share-modal" tabindex="-1"
+	 role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="ai1ec-modal-dialog ai1ec-modal-dialog-center">
+		<div class="ai1ec-modal-content">
+			<div class="ai1ec-modal-body">
+				<h3>Share Event<span class="ai1ec-share-multiple">s</span></h3>
+				<p class="ai1ec-share-multiple">
+					<strong>Step 1.</strong>
+					Give your custom calendar a title.
+				</p>
+				<p class="ai1ec-share-multiple">
+					<input type="text" id="ai1ec-share-events-title"
+						   class="ai1ec-form-control"
+						   placeholder="ex. Custom Calendar"
+						   maxlength="60">
+				</p>
+				<p>
+					<strong class="ai1ec-share-multiple">Step 2.</strong>
+					Share or bookmark this link or click on a button below:
+				</p>
+				<div class="ai1ec-row">
+					<div class="ai1ec-col-sm-10">
+						<input type="text" id="ai1ec-share-events-link"
+							   class="ai1ec-form-control" value="" readonly>
+					</div>
+					<div class="ai1ec-col-sm-2">
+						<label for="a1iec-shorten">
+							<input type="checkbox" id="a1iec-shorten"
+								   name="ai1ec-shorten">
+							Shorten
+						</label>
+					</div>
+				</div>
+				<p class="ai1ec-share-dialog-buttons">
+					<a href="#" id="ai1ec-share-open" class="ai1ec-btn ai1ec-btn-primary"
+					   target="_blank">
+						<i class="ai1ec-fa ai1ec-fa-external-link-square"></i>
+						Open
+					</a>
+					<a href="#" id="ai1ec-share-email" class="ai1ec-btn ai1ec-btn-primary">
+						<i class="ai1ec-fa ai1ec-fa-envelope"></i>
+						Email
+					</a>
+					<a href="#" id="ai1ec-share-facebook" class="ai1ec-btn ai1ec-btn-primary"
+					   data-url="http://www.facebook.com/sharer.php?s=100"
+					   target="_blank">
+						<i class="ai1ec-fa ai1ec-fa-facebook-square"></i>
+						Facebook
+					</a>
+					<a href="#" id="ai1ec-share-twitter" class="ai1ec-btn ai1ec-btn-primary"
+				       data-text="Check out these events"
+					   data-url="https://twitter.com/intent/tweet?url="
+					   target="_blank">
+						<i class="ai1ec-fa ai1ec-fa-twitter-square"></i>
+						Twitter
+					</a>
+					<a href="#" id="ai1ec-share-google" class="ai1ec-btn ai1ec-btn-primary"
+					   data-url="https://plus.google.com/share?url="
+					   target="_blank">
+						<i class="ai1ec-fa ai1ec-fa-google-plus-square"></i>
+						Google+
+					</a>
+				</p>
+				<div class="ai1ec-email-form ai1ec-hidden">
+					<form class="ai1ec-form-inline" enctype="text/plain"
+						  action="mailto:" target="_blank"
+						  method="get">
+						<div class="ai1ec-form-group ai1ec-clearfix">
+							<input type="hidden" name="subject"
+								   value="Check out these events">
+							<input type="hidden" name="body"
+								   id="ai1ec-share-email-body" value=""
+								   data-body="Click on this link to see some cool events:">
+							<input type="email" id="ai1ec-share-email-field"
+								   class="ai1ec-form-control"
+								   placeholder="Enter email address"
+								   value="">
+							<button href="#" id="ai1ec-share-email-send"
+								    class="ai1ec-btn ai1ec-btn-primary">
+								Send
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

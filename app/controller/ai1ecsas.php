@@ -89,6 +89,37 @@ class Ai1ec_Controller_Ai1ecsas extends Ai1ec_Base_License_Controller {
 			10,
 			2
 		);
+		// Add new LESS file to parse queue.
+		$dispatcher->register_filter(
+			'ai1ec_less_files',
+			array( 'less.save-and-share', 'add_less_files' ),
+			10,
+			2
+		);
+		// Add Save and Share buttons
+		$dispatcher->register_filter(
+			'ai1ec_action_buttons',
+			array( 'view.sas-frontend', 'add_buttons' ),
+			10
+		);
+		// Add buttons to filter toolbar
+		$dispatcher->register_filter(
+			'ai1ec_additional_buttons',
+			array( 'view.sas-frontend', 'add_toolbar_buttons' ),
+			10
+		);
+		// Append clear buttons to the bottom of views.
+		$dispatcher->register_filter(
+			'ai1ec_after_view',
+			array( 'view.sas-frontend', 'add_clear_buttons' ),
+			10
+		);
+		// Add title for custom calendar.
+		$dispatcher->register_filter(
+			'ai1ec_above_calendar',
+			array( 'view.sas-frontend', 'add_shared_events_title' ),
+			10
+		);
 	}
 
 	public function on_deactivation() {
