@@ -66,6 +66,30 @@ class Ai1ec_Controller_Ai1ecsas extends Ai1ec_Base_License_Controller {
 	}
 
 	/**
+	 * Extra arguments for viewing saved events.
+	 *
+	 * @param object $query
+	 *
+	 * @return void Method does not return.
+	 */
+	public function add_extra_arguments( Ai1ec_Abstract_Query $query ) {
+		// For making external links on a set of events.
+		// The value is a name of the set.
+		$query->add_rule( 'saved_events', false, 'string' );
+		// Used to indicate if user is viewing his Saved Events.
+		$query->add_rule( 'my_saved_events', false, 'string' );
+	}
+
+	/**
+	 * Empty function body.
+	 *
+	 * @return void Method does not return.
+	 */
+	public function on_activation() {
+
+	}
+
+	/**
 	 * Register custom settings used by the extension to ai1ec general settings
 	 * framework
 	 *
@@ -126,11 +150,9 @@ class Ai1ec_Controller_Ai1ecsas extends Ai1ec_Base_License_Controller {
 			array( 'view.sas-frontend', 'add_shared_events_title' ),
 			10
 		);
+		// Add support for extra attributes.
+		$dispatcher->register_action( 'ai1ec_request_parser_rules_added',
+			array( 'controller.ai1ecsas', 'add_extra_arguments' )
+		);
 	}
-
-	public function on_deactivation() {
-		parent::on_deactivation();
-	}
-
-	public function on_activation( Ai1ec_Registry $ai1ec_registry ) {}
 }

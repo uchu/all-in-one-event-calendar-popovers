@@ -62,13 +62,17 @@ class Ai1ecsas_Frontend extends Ai1ec_Base {
 	/**
 	 * Add title panel for shared events.
 	 *
+	 * @param string $html Input $html.
+	 *
 	 * @return string HTML for a panel with custom heading.
 	 */
 	public function add_shared_events_title( $html ) {
 		$loader = $this->_registry->get( 'theme.loader' );
 		$file   = $loader->get_file(
 			'shared-title.twig',
-			array( 'request' => $this->_registry->get( 'Ai1ec_Request_Parser' ) ),
+			array(
+				'request' => $this->_registry->get( 'http.request.parser' )
+			),
 			false
 		);
 		$html  .= $file->get_content();
