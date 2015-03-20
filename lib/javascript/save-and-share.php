@@ -4,7 +4,7 @@
  * The class which adds Save and Share javascript.
  *
  * @author     Time.ly Network Inc.
- * @since      2.2.0
+ * @since      1.0
  *
  * @package    AI1ECSAS
  * @subpackage AI1ECSAS.Lib
@@ -23,7 +23,7 @@ class Ai1ecsas_Javascript_Save_And_Share extends Ai1ec_Base {
 		$script_path = AI1ECSAS_PATH . DIRECTORY_SEPARATOR . 'public' .
 				DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'scripts' .
 				DIRECTORY_SEPARATOR;
-		$script = $script_path . 'save_and_share.js';
+		$script      = $script_path . 'save_and_share.js';
 		if ( 'ai1ec_widget.js' === $page_to_load ) {
 			$script = array(
 				'url' => AI1ECSAS_URL . '/public/js/scripts/save_and_share.js',

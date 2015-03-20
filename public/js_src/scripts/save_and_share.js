@@ -59,11 +59,9 @@ require(
 			close_saved            = function() {
 				var
 					$active_view_link = $( '.ai1ec-views-dropdown .ai1ec-active a' ),
-					href = $active_view_link.attr( 'href' );
-
-				href = href
-					.replace( /(\/|\|)post_ids~((\d+)(,?))+/g, '' )
-					.replace( /(\/|\|)time_limit~1/, '' );
+					href              = $active_view_link.attr( 'href' )
+						.replace( /(\/|\|)post_ids~((\d+)(,?))+/g, '' )
+						.replace( /(\/|\|)time_limit~1/, '' );
 
 				$active_view_link.attr( 'href', href ).trigger( 'click' );
 				$show_saved

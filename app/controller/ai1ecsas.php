@@ -4,7 +4,7 @@
  * Save and Share add-on front controller.
  *
  * @author     Time.ly Network Inc.
- * @since      2.2
+ * @since      1.0
  *
  * @package    AI1ECSAS
  * @subpackage AI1ECSAS.Controller
@@ -114,6 +114,12 @@ class Ai1ec_Controller_Ai1ecsas extends Ai1ec_Base_License_Controller {
 			array( 'view.sas-frontend', 'add_clear_buttons' ),
 			10
 		);
+		// Append Share modal.
+		$dispatcher->register_filter(
+			'ai1ec_after_view',
+			array( 'view.sas-frontend', 'add_share_modal' ),
+			10
+		);
 		// Add title for custom calendar.
 		$dispatcher->register_filter(
 			'ai1ec_above_calendar',
@@ -127,5 +133,4 @@ class Ai1ec_Controller_Ai1ecsas extends Ai1ec_Base_License_Controller {
 	}
 
 	public function on_activation( Ai1ec_Registry $ai1ec_registry ) {}
-
 }

@@ -4,9 +4,10 @@
  * The class which adds LESS code for Save and Share.
  *
  * @author     Time.ly Network Inc.
- * @since      2.2
+ * @since      1.0
  *
- * @package    AI1EC
+ * @package    AI1ECSAS
+ * @subpackage AI1ECSAS.Lib
  */
 class Ai1ec_Less_Save_And_Share extends Ai1ec_Base {
 
