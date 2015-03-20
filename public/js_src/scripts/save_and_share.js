@@ -389,7 +389,7 @@ require(
 		resolve_buttons_states();
 		update_current_view();
 		update_counter();
-		on_view_init();
+		//on_view_init();
 	}
 
 	domReady( init_save_and_share );

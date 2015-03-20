@@ -29,7 +29,15 @@ class Ai1ecsas_Frontend extends Ai1ec_Base {
 	 */
 	public function add_toolbar_buttons( $buttons ) {
 		$loader   = $this->_registry->get( 'theme.loader' );
-		$file     = $loader->get_file( 'toolbar-buttons.twig', array(), false );
+		$parser = $this->_registry->get( 'http.request.parser' );
+		$parser->parse();
+		$file     = $loader->get_file(
+			'toolbar-buttons.twig',
+			array(
+				'request' => $parser
+			),
+			false
+		);
 		$buttons .= $file->get_content();
 		return $buttons;
 	}
@@ -68,10 +76,12 @@ class Ai1ecsas_Frontend extends Ai1ec_Base {
 	 */
 	public function add_shared_events_title( $html ) {
 		$loader = $this->_registry->get( 'theme.loader' );
+		$parser = $this->_registry->get( 'http.request.parser' );
+		$parser->parse();
 		$file   = $loader->get_file(
 			'shared-title.twig',
 			array(
-				'request' => $this->_registry->get( 'http.request.parser' )
+				'request' => $parser
 			),
 			false
 		);
