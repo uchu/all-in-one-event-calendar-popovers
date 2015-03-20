@@ -35,9 +35,9 @@
 		cursor: pointer;
 		display: inline-block;
 		font-size: 0.9em;
-		line-height: 2em !important;
+		line-height: 2em;
 		margin: 1px 0;
-		padding: 0 0.5em !important;
+		padding: 0 0.5em;
 		text-transform: uppercase;
 		white-space: nowrap;
 	}
@@ -48,31 +48,12 @@
 		}
 	}
 }
-
 // Agenda
 .ai1ec-agenda-view {
 	.ai1ec-event {
 		.ai1ec-actions {
 			margin: 0 10px;
-		}
-	}
-}
-
-// Stream view.
-.ai1ec-stream-view {
-	.ai1ec-actions {
-		float: right;
-		margin: 10px 0 10px 0;
-		@media ( min-width: @screen-md ) {
-			position: absolute;
-			right: 0px;
-		}
-		@media ( max-width: @screen-sm ) {
-			float: right;
-			display: block;
-			a {
-				display: block;
-				clear: both;
+			@media ( max-width: @screen-md ) {
 				span {
 					display: none !important;
 				}
@@ -80,7 +61,31 @@
 		}
 	}
 }
-
+// Stream view.
+.ai1ec-stream-view {
+	.ai1ec-actions {
+		float: right;
+		margin: 0 10px;
+		position: absolute;
+		right: 0px;
+		@media ( max-width: @screen-md ) {
+			span {
+				display: none !important;
+			}
+		}
+	}
+	.post-edit-link {
+		margin-top: 28px;
+	}
+}
+// Views with popovers.
+.ai1ec-popup-in-oneday-view,
+.ai1ec-popup-in-week-view,
+.ai1ec-popup-in-month-view {
+	.ai1ec-actions {
+		margin: 5px 0;
+	}
+}
 // Saved Events
 .ai1ec-save-and-share-buttons {
 	margin: 7px;
@@ -123,7 +128,6 @@
 	}
 
 }
-
 // Sharing dialog
 #ai1ec-share-modal {
 	a:hover,
