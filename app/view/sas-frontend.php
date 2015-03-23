@@ -106,6 +106,10 @@ class Ai1ecsas_Frontend extends Ai1ec_Base {
 	 * @return string HTML for modal dialog.
 	 */
 	public function add_share_modal( $html = '' ) {
+		static $launched = null;
+		if ( $launched ) {
+			return $html;
+		}
 		$loader = $this->_registry->get( 'theme.loader' );
 		$file   = $loader->get_file( 'share-modal.twig',
 			array(
@@ -181,6 +185,7 @@ class Ai1ecsas_Frontend extends Ai1ec_Base {
 			false
 		);
 		$html  .= $file->get_content();
+		$launched = true;
 		return $html;
 	}
 
