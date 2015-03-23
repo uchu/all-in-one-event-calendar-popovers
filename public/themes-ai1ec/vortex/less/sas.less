@@ -7,29 +7,29 @@
 @import "bootstrap/mixins.less";
 
 // Save and Share buttons.
-.ai1ec-action-star {
-	.ai1ec-saved {
+.ai1ec-sas-action-star {
+	.ai1ec-sas-saved {
 		display: none !important;
 	}
 	&.ai1ec-selected {
-		.ai1ec-save {
+		.ai1ec-sas-save {
 			display: none !important;
 		}
-		.ai1ec-saved {
+		.ai1ec-sas-saved {
 			display: inline !important;
 		}
 	}
 }
 .ai1ec-event:hover,
 .ai1ec-popover {
-	.ai1ec-actions {
+	.ai1ec-sas-actions {
 		display: block;
 	}
 }
-.ai1ec-actions {
+.ai1ec-sas-actions {
 	text-align: center;
 	display: none;
-	a.ai1ec-action {
+	a.ai1ec-sas-action {
 		border-radius: 4px;
 		.ai1ec-box-shadow( inset 0 0 1px fade( @dropdown-link-hover-color, 50% ) );
 		cursor: pointer;
@@ -41,8 +41,8 @@
 		text-transform: uppercase;
 		white-space: nowrap;
 	}
-	.ai1ec-action:hover,
-	.ai1ec-active > .ai1ec-action {
+	.ai1ec-sas-action:hover,
+	.ai1ec-active > .ai1ec-sas-action {
 		span {
 			display: inline;
 		}
@@ -51,7 +51,8 @@
 // Agenda
 .ai1ec-agenda-view {
 	.ai1ec-event {
-		.ai1ec-actions {
+		.ai1ec-sas-actions {
+			float: right;
 			margin: 0 10px;
 			@media ( max-width: @screen-md ) {
 				span {
@@ -63,7 +64,7 @@
 }
 // Stream view.
 .ai1ec-stream-view {
-	.ai1ec-actions {
+	.ai1ec-sas-actions {
 		float: right;
 		margin: 0 10px;
 		position: absolute;
@@ -79,21 +80,19 @@
 	}
 }
 // Views with popovers.
-.ai1ec-popup-in-oneday-view,
-.ai1ec-popup-in-week-view,
-.ai1ec-popup-in-month-view {
-	.ai1ec-actions {
+.ai1ec-popup {
+	.ai1ec-sas-actions {
 		margin: 5px 0;
 	}
 }
 // Saved Events
-.ai1ec-save-and-share-buttons {
-	margin: 3px;
+.ai1ec-sas-save-and-share-buttons {
+	margin: 4px;
 	margin-right: -4px;
 	> div {
 		margin-left: 4px;
 	}
-	.ai1ec-saved-events {
+	.ai1ec-sas-saved-events {
 		float: left;
 		@media ( max-width: @screen-md ) {
 			span {
@@ -101,13 +100,13 @@
 			}
 		}
 	}
-	.ai1ec-show-saved {
+	.ai1ec-sas-show-saved {
 		float: left;
-		.ai1ec-close-saved-events {
+		.ai1ec-sas-close-saved-events {
 			display: none;
 		}
 		&.ai1ec-active {
-			.ai1ec-close-saved-events {
+			.ai1ec-sas-close-saved-events {
 				display: inline-block;
 			}
 		}
@@ -117,8 +116,11 @@
 			}
 		}
 	}
-	.ai1ec-saved-events-exit {
+	.ai1ec-sas-saved-events-exit {
 		float: left;
+		.ai1ec-exit-title {
+			font-style: italic;
+		}
 		@media ( max-width: @screen-md ) {
 			span {
 				display: none;
@@ -147,7 +149,7 @@
 		}
 	}
 }
-.ai1ec-clear-saved-buttons {
+.ai1ec-sas-clear-saved-buttons {
 	text-align: center;
 	margin: 20px 0;
 	a {
@@ -158,7 +160,7 @@
 			background: #d00;
 		}
 		i {
-			font-size: 20px;
+			font-size: 15px;
 		}
 	}
 }

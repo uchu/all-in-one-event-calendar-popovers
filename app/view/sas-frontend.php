@@ -57,7 +57,7 @@ class Ai1ecsas_Frontend extends Ai1ec_Base {
 	/**
 	 * Add Share modal.
 	 *
-	 * @return string HTML for toolbar.
+	 * @return string HTML for modal dialog.
 	 */
 	public function add_share_modal( $html ) {
 		$loader = $this->_registry->get( 'theme.loader' );
@@ -66,6 +66,19 @@ class Ai1ecsas_Frontend extends Ai1ec_Base {
 		return $html;
 	}
 
+	/**
+	 * Show only unique events when viewing Saved events.
+	 *
+	 * @return boolean If to show only unique events.
+	 */
+	public function show_unique_events() {
+		$parser = $this->_registry->get( 'http.request.parser' );
+		$parser->parse();
+		return ( bool ) (
+			$parser['my_saved_events'] ||
+			$parser['saved_events']
+		);
+	}
 
 	/**
 	 * Add title panel for shared events.

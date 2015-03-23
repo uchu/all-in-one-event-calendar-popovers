@@ -81,6 +81,38 @@ class Ai1ec_Controller_Ai1ecsas extends Ai1ec_Base_License_Controller {
 	}
 
 	/**
+	 * Handler for ai1ec_view_args_for_view filter.
+	 *
+	 * @param array $args Input value.
+	 *
+	 * @return array Modified values.
+	 */
+	public function ai1ec_view_args_for_view( $args ) {
+		$args[] = 'saved_events';
+		$args[] = 'my_saved_events';
+		return $args;
+	}
+
+
+	/**
+	 * Handler for ai1ec_view_args_array filter.
+	 *
+	 * @param array $args Input values.
+	 *
+	 * @return array Modified values.
+	 */
+	public function ai1ec_view_args_array( $args ) {
+		if ( is_array( $args ) ) {
+			$extra_used_parameters = array(
+				'saved_events',
+				'my_saved_events'
+			);
+			$args['_extra_used_parameters'] = $extra_used_parameters;
+		}
+		return $args;
+	}
+
+	/**
 	 * Empty function body.
 	 *
 	 * @return void Method does not return.
@@ -150,9 +182,24 @@ class Ai1ec_Controller_Ai1ecsas extends Ai1ec_Base_License_Controller {
 			array( 'view.sas-frontend', 'add_shared_events_title' ),
 			10
 		);
+		// Show unique events when viewing Saved events.
+		$dispatcher->register_filter(
+			'ai1ec_show_unique_events',
+			array( 'view.sas-frontend', 'show_unique_events' ),
+			10,
+			0
+		);
 		// Add support for extra attributes.
 		$dispatcher->register_action( 'ai1ec_request_parser_rules_added',
 			array( 'controller.ai1ecsas', 'add_extra_arguments' )
+		);
+		$dispatcher->register_filter(
+			'ai1ec_view_args_for_view',
+			array( 'controller.ai1ecsas', 'ai1ec_view_args_for_view' )
+		);
+		$dispatcher->register_filter(
+			'ai1ec_view_args_array',
+			array( 'controller.ai1ecsas', 'ai1ec_view_args_array' )
 		);
 	}
 }

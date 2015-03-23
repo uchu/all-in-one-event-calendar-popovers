@@ -1,24 +1,24 @@
-<div class="ai1ec-save-and-share-buttons">
-	<div class="ai1ec-hidden ai1ec-show-saved">
-		<a href="#" class="ai1ec-load-view ai1ec-btn ai1ec-btn-primary"
+<div class="ai1ec-sas-save-and-share-buttons">
+	<div class="ai1ec-hidden ai1ec-sas-show-saved">
+		<a href="#" class="ai1ec-load-view ai1ec-btn ai1ec-btn-primary ai1ec-btn-sm"
 		   data-type="jsonp">
-			<i class="ai1ec-fa ai1ec-fa-star"></i>
+			<i class="ai1ec-fa ai1ec-fa-star-o"></i>
 			<span>Your Saved Events</span>
-			<span class="ai1ec-saved-events-count"></span>
-			<span class="ai1ec-close-saved-events">
+			<span class="ai1ec-sas-saved-events-count"></span>
+			<span class="ai1ec-sas-close-saved-events">
 				<i class="ai1ec-fa ai1ec-fa-times-circle"></i>
 			</span>
 		</a>
 	</div>
-	<div class="ai1ec-saved-events-exit
+	<div class="ai1ec-sas-saved-events-exit
 		{% if request.saved_events is empty %}ai1ec-hidden{% endif %}">
-		<a href="/" class="ai1ec-btn ai1ec-btn-primary">
+		<a href="/" class="ai1ec-btn ai1ec-btn-primary ai1ec-btn-sm">
 			<i class="ai1ec-fa ai1ec-fa-times-circle"></i>
-			<span>Exit &laquo;{{ request.saved_events }}&raquo;</span>
+			<span>Exit <span class="ai1ec-exit-title">&laquo;{{ request.saved_events }}</span>&raquo;</span>
 		</a>
 	</div>
-	<div class="ai1ec-saved-events">
-		<a href="#" class="ai1ec-btn ai1ec-btn-primary"
+	<div class="ai1ec-sas-saved-events">
+		<a href="#" class="ai1ec-btn ai1ec-btn-primary ai1ec-btn-sm"
 		   data-toggle="ai1ec-modal"
 		   data-target="#ai1ec-share-modal">
 			<i class="ai1ec-fa ai1ec-fa-share"></i>

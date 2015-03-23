@@ -16,9 +16,9 @@ require(
 				var ids = localStorage.getItem( 'ai1ec_saved_events' );
 				return ids ? ids.split( ',' ) : [];
 			},
-			$counter               = $( '.ai1ec-saved-events-count' ),
-			$show_saved            = $( '.ai1ec-show-saved' ),
-			$close_button          = $( '.ai1ec-close-saved-events' ),
+			$counter               = $( '.ai1ec-sas-saved-events-count' ),
+			$show_saved            = $( '.ai1ec-sas-show-saved' ),
+			$close_button          = $( '.ai1ec-sas-close-saved-events' ),
 			$url_input             = $( '#ai1ec-share-events-link' ),
 			$modal                 = $( '#timely-share-modal' ),
 			$shorten               = $( '#a1iec-shorten' ),
@@ -30,10 +30,10 @@ require(
 			$facebook              = $( '#ai1ec-share-facebook' ),
 			$twitter               = $( '#ai1ec-share-twitter' ),
 			$google                = $( '#ai1ec-share-google' ),
-			$share_button          = $( '.ai1ec-saved-events'),
-			$exit_button           = $( '.ai1ec-saved-events-exit'),
+			$share_button          = $( '.ai1ec-sas-saved-events'),
+			$exit_button           = $( '.ai1ec-sas-saved-events-exit'),
 			$title                 = $( '#ai1ec-share-events-title' ),
-			$events_title          = $( '.ai1ec-saved-events-title' ),
+			$events_title          = $( '.ai1ec-sas-saved-events-title' ),
 			$multiple              = $( '.ai1ec-share-multiple' ),
 			$open                  = $( '#ai1ec-share-open' ),
 			update_counter         = function() {
@@ -97,7 +97,7 @@ require(
 				mark_saved ( $this );
 				// Switch the state of duplicating buttons in details view.
 				if ( $this.data( 'post_id' ) ) {
-					mark_saved( $( '.ai1ec-action-star' ).not( $this ) );
+					mark_saved( $( '.ai1ec-sas-action-star' ).not( $this ) );
 				}
 
 				if ( $this.hasClass( 'ai1ec-selected' ) ) {
@@ -307,13 +307,13 @@ require(
 				update_current_view();
 				var
 					ids                  = get_saved_events_ids(),
-					$single_event_button = $( '#timely-save-button .ai1ec-action-star' ),
-					$clear               = $( '.ai1ec-clear-saved-buttons' );
+					$single_event_button = $( '#timely-save-button .ai1ec-sas-action-star' ),
+					$clear               = $( '.ai1ec-sas-clear-saved-buttons' );
 
-				$( '.ai1ec-action-star' ).removeClass( 'ai1ec-selected' )
+				$( '.ai1ec-sas-action-star' ).removeClass( 'ai1ec-selected' )
 				for ( var i = 0; i < ids.length; i++ ) {
 					mark_saved(
-						$( '.ai1ec-event-id-' + ids[i] ).find( '.ai1ec-action-star' )
+						$( '.ai1ec-event-id-' + ids[i] ).find( '.ai1ec-sas-action-star' )
 					);
 				}
 				// Toggle "saved" on event details page.
@@ -346,25 +346,36 @@ require(
 			};
 
 		// Set event handlers.
-		$( document ).on( 'click', '.ai1ec-close-saved-events', close_saved );
-		$( document ).on( 'click', '.ai1ec-action-star', save );
-		$( document ).on( 'click', '.ai1ec-saved-events', function() {
+		$( document ).on( 'click', '.ai1ec-sas-close-saved-events', close_saved );
+		// Handling a click on a Save button.
+		$( document ).on( 'click', '.ai1ec-sas-action-star', save );
+		$( document ).on( 'click', '.ai1ec-sas-saved-events', function() {
 			$multiple.show();
 			update_url();
 		} );
+		// It fires each time new view is ready.
 		$( document ).on( 'initialize_view.ai1ec',
 			'.ai1ec-calendar-view-container',
 			on_view_init
 		);
-		$( document ).on( 'click', '.ai1ec-action-share', function() {
+		// Handling a click on a Share button.
+		// These buttons also open a Bootstrap modal.
+		$( document ).on( 'click', '.ai1ec-sas-action-share', function() {
 			$shorten.removeAttr( 'checked' );
-			shared_url = $( this ).attr( 'data-url' ) || location.href;
+			// Find a link to the event details or use current URL.
+			shared_url = $( this )
+				.closest( '.ai1ec-popover, .ai1ec-event' )
+					.find( '.ai1ec-load-event:first' )
+						.attr( 'href' )
+				|| location.href;
 			update_buttons();
 			$multiple.hide();
 			return false;
 		} );
-		$( document ).on( 'click', '.ai1ec-clear-saved', clear_all_saved );
-		$( document ).on( 'click', '.ai1ec-clear-expired', clear_expired );
+		// Handling a click on Clear buttons (when viewing Saved events).
+		$( document ).on( 'click', '.ai1ec-sas-clear-saved', clear_all_saved );
+		$( document ).on( 'click', '.ai1ec-sas-clear-expired', clear_expired );
+		// Events handlers for the Share dialog.
 		$title.on( 'keyup change', update_url );
 		$shorten.on( 'click', shorten_url );
 		$facebook.on( 'click', open_window );
@@ -389,8 +400,7 @@ require(
 		resolve_buttons_states();
 		update_current_view();
 		update_counter();
-		//on_view_init();
 	}
-
+	// Start initialization on DomReady.
 	domReady( init_save_and_share );
 } );
