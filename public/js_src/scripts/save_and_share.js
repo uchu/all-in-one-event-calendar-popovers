@@ -304,14 +304,16 @@ require(
 					localStorage.setItem( 'ai1ec_saved_events', ids.join( ',' ) );
 					update_counter();
 					if ( ids.length ) {
-						//trigger_view_init();
-						$show_saved.trigger( 'click' );
+						$( 'a.ai1ec-load-view', $show_saved )
+							.trigger( 'click' );
 					} else {
 						close_saved();
 					}
+				} else {
+					// Hide the Clear Expired button.
+					$( this ).fadeOut();
 				}
-				// Hide the Clear Expired button.
-				$( this ).fadeOut();
+
 				return false;
 			},
 			on_view_init           = function() {
