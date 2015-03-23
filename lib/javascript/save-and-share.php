@@ -24,14 +24,16 @@ class Ai1ecsas_Javascript_Save_And_Share extends Ai1ec_Base {
 				DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'scripts' .
 				DIRECTORY_SEPARATOR;
 		$script      = $script_path . 'save_and_share.js';
-		if ( 'ai1ec_widget.js' === $page_to_load ) {
-			$script = array(
-				'url' => AI1ECSAS_URL . '/public/js/scripts/save_and_share.js',
-				'id'  => 'save_and_share'
-			);
-		}
-		if ( 'main_widget.js' === $page_to_load ) {
-			$script = null;
+		switch ( $page_to_load ) {
+			case 'ai1ec_widget.js':
+				$script = array(
+					'url' => AI1ECSAS_URL . '/public/js/scripts/save_and_share.js',
+					'id'  => 'save_and_share'
+				);
+				break;
+			case 'main_widget.js':
+				$script = null;
+				break;
 		}
 		if ( ! empty( $script ) ) {
 			$files[] = $script;
