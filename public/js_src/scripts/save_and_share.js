@@ -285,22 +285,33 @@ require(
 						$this    = $( this ),
 						event_id = $this.attr( 'class' ).match( /ai1ec-event-id-(\d+)/ )[1];
 
+					// Compare the end of each event with the current date.
 					if ( ( new Date( $this.data( 'end' ) ) ).getTime() < now ) {
+						// Remove the event from IDs list and from the page.
 						ids.splice( ids.indexOf( event_id ), 1 );
 						$this.remove();
 					}
 				} );
+				// Remove empty Date containers.
+				$( '.ai1ec-date-events' ).each( function() {
+					var $this = $( this );
+					if ( ! $this.children().length ) {
+						$this.closest( '.ai1ec-date' ).remove();
+					}
+				} );
+				// Length of visible elements changed.
 				if ( ids_length !== ids.length ) {
 					localStorage.setItem( 'ai1ec_saved_events', ids.join( ',' ) );
 					update_counter();
 					if ( ids.length ) {
-						trigger_view_init();
+						//trigger_view_init();
+						$show_saved.trigger( 'click' );
 					} else {
 						close_saved();
 					}
-				} else {
-					$( this ).fadeOut();
 				}
+				// Hide the Clear Expired button.
+				$( this ).fadeOut();
 				return false;
 			},
 			on_view_init           = function() {
@@ -328,13 +339,17 @@ require(
 					}
 				}
 				update_counter();
+				// Share button blinks when view is loaded.
 				for ( var i = 0; i < 2; i++ ) {
 					$share_button
 						.animate( { opacity: 0.5 }, 200 )
 						.animate( { opacity: 1 }, 300  );
 				}
-
-				if ( $show_saved.hasClass( 'ai1ec-active' ) ) {
+				// Manipulate with Clear buttons if needed.
+				if (
+					$show_saved.hasClass( 'ai1ec-active' ) &&
+					! $clear.closest( '.ai1ec-calendar-view').length
+				) {
 					// Move Clear buttons so they appear in the right place.
 					$clear.clone( true ).insertAfter(
 						$( '#ai1ec-calendar-view > div, #ai1ec-calendar-view > table' )
