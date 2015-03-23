@@ -18,7 +18,29 @@ class Ai1ecsas_Frontend extends Ai1ec_Base {
 	public function add_buttons( $buttons ) {
 		$loader   = $this->_registry->get( 'theme.loader' );
 		$file     = $loader->get_file(
-			'buttons.twig', array(
+			'buttons.twig',
+			array(
+				'text_save'  => __( 'Save', AI1ECSAS_PLUGIN_NAME ),
+				'text_saved' => __( 'Saved', AI1ECSAS_PLUGIN_NAME ),
+				'text_share' => __( 'Share', AI1ECSAS_PLUGIN_NAME )
+			),
+			false
+		);
+		$buttons .= $file->get_content();
+		return $buttons;
+	}
+
+	/**
+	 * Add Save and Share buttons to the Event details page.
+	 *
+	 * @return string HTML for toolbar.
+	 */
+	public function add_buttons_for_event_details( $buttons ) {
+		$loader   = $this->_registry->get( 'theme.loader' );
+		$file     = $loader->get_file(
+			'buttons.twig',
+			array(
+				'single'     => true,
 				'text_save'  => __( 'Save', AI1ECSAS_PLUGIN_NAME ),
 				'text_saved' => __( 'Saved', AI1ECSAS_PLUGIN_NAME ),
 				'text_share' => __( 'Share', AI1ECSAS_PLUGIN_NAME )
@@ -62,8 +84,14 @@ class Ai1ecsas_Frontend extends Ai1ec_Base {
 		$file     = $loader->get_file(
 			'clear-buttons.twig',
 			array(
-				'text_clear_expired' => __( 'Clear Expired Events', AI1ECSAS_PLUGIN_NAME ),
-				'text_clear_all'     => __( 'Clear all Saved Events', AI1ECSAS_PLUGIN_NAME )
+				'text_clear_expired' => __(
+					'Clear Expired Events',
+					AI1ECSAS_PLUGIN_NAME
+				),
+				'text_clear_all'     => __(
+					'Clear all Saved Events',
+					AI1ECSAS_PLUGIN_NAME
+				)
 			),
 			false
 		);

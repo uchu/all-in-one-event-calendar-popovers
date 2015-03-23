@@ -86,7 +86,7 @@ require(
 			save                   = function() {
 				var
 					$this       = $( this ),
-					$event      = $this.closest( '.ai1ec-event' ),
+					$event      = $this.closest( '.ai1ec-event, .ai1ec-single-event' ),
 					event_id    = (
 						$event.length
 						? $event.attr( 'class' ).match( /ai1ec-event-id-(\d+)/ )[1]
@@ -320,24 +320,25 @@ require(
 				update_current_view();
 				var
 					ids                  = get_saved_events_ids(),
-					$single_event_button = $( '#timely-save-button .ai1ec-sas-action-star' ),
+					$single_event_button = $( '.single-ai1ec_event .ai1ec-sas-action-star' ),
 					$clear               = $( '.ai1ec-sas-clear-saved-buttons' );
 
 				$( '.ai1ec-sas-action-star' ).removeClass( 'ai1ec-selected' )
-				for ( var i = 0; i < ids.length; i++ ) {
-					mark_saved(
-						$( '.ai1ec-event-id-' + ids[i] ).find( '.ai1ec-sas-action-star' )
-					);
-				}
 				// Toggle "saved" on event details page.
 				if ( $single_event_button.length ) {
 					if (
 						-1 < $.inArray(
-							$single_event_button.data( 'post_id' ).toString(),
+							$single_event_button.closest( '.ai1ec-single-event' ).attr( 'class' ).match( /ai1ec-event-id-(\d+)/ )[1],
 							ids
 						)
 					) {
 						mark_saved( $single_event_button );
+					}
+				} else {
+					for ( var i = 0; i < ids.length; i++ ) {
+						mark_saved(
+							$( '.ai1ec-event-id-' + ids[i] ).find( '.ai1ec-sas-action-star' )
+						);
 					}
 				}
 				update_counter();
@@ -417,6 +418,7 @@ require(
 		resolve_buttons_states();
 		update_current_view();
 		update_counter();
+		on_view_init();
 	}
 	// Start initialization on DomReady.
 	domReady( init_save_and_share );

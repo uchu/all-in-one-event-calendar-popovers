@@ -1,6 +1,7 @@
 <div class="ai1ec-sas-save-and-share-buttons ai1ec-additional-buttons">
 	<div class="ai1ec-hidden ai1ec-sas-show-saved">
-		<a href="#" class="ai1ec-load-view ai1ec-btn ai1ec-btn-primary ai1ec-btn-sm"
+		<a href="#" class="ai1ec-load-view ai1ec-btn
+		   ai1ec-btn-primary ai1ec-btn-sm"
 		   data-type="jsonp">
 			<i class="ai1ec-fa ai1ec-fa-star-o"></i>
 			<span>{{ text_saved_events }}</span>
@@ -14,7 +15,11 @@
 		{% if request.saved_events is empty %}ai1ec-hidden{% endif %}">
 		<a href="/" class="ai1ec-btn ai1ec-btn-primary ai1ec-btn-sm">
 			<i class="ai1ec-fa ai1ec-fa-times-circle"></i>
-			<span>{{ text_exit }} <span class="ai1ec-exit-title">&laquo;{{ request.saved_events }}</span>&raquo;</span>
+			<span>{{ text_exit }}
+				<span class="ai1ec-exit-title">
+					&laquo;{{ request.saved_events }}
+				</span>&raquo;
+			</span>
 		</a>
 	</div>
 	<div class="ai1ec-sas-saved-events">

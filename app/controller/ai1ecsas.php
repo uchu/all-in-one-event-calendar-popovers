@@ -189,6 +189,12 @@ class Ai1ec_Controller_Ai1ecsas extends Ai1ec_Base_License_Controller {
 			10,
 			0
 		);
+		// Show unique events when viewing Saved events.
+		$dispatcher->register_filter(
+			'ai1ec_rendering_single_event_actions',
+			array( 'view.sas-frontend', 'add_buttons_for_event_details' ),
+			10
+		);
 		// Add support for extra attributes.
 		$dispatcher->register_action( 'ai1ec_request_parser_rules_added',
 			array( 'controller.ai1ecsas', 'add_extra_arguments' )
