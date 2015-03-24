@@ -195,6 +195,12 @@ class Ai1ec_Controller_Ai1ecsas extends Ai1ec_Base_License_Controller {
 			array( 'view.sas-frontend', 'add_buttons_for_event_details' ),
 			10
 		);
+		// Increase events limit for viewing Saved events.
+		$dispatcher->register_filter(
+			'ai1ec_events_limit',
+			array( 'view.sas-frontend', 'set_event_limit' ),
+			10
+		);
 		// Add support for extra attributes.
 		$dispatcher->register_action( 'ai1ec_request_parser_rules_added',
 			array( 'controller.ai1ecsas', 'add_extra_arguments' )

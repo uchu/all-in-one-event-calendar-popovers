@@ -219,4 +219,13 @@ class Ai1ecsas_Frontend extends Ai1ec_Base {
 		$html  .= $file->get_content();
 		return $html;
 	}
+
+	/**
+	 * Increase limit to 500 when showing Saved events.
+	 *
+	 * @return integer Limit of events to show.
+	 */
+	public function set_event_limit( $limit ) {
+		return $this->show_unique_events() ? 500 : $limit;
+	}
 }
