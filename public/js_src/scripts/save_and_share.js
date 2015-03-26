@@ -172,15 +172,43 @@ require(
 				return url;
 			},
 			shared_url             = get_url(),
-			update_buttons         = function() {
-				$google.attr(
-					'href',
-					$google.data( 'url' ) + encodeURIComponent( shared_url )
-				);
+			// $event is passed only when sharing a signle event.
+			update_buttons         = function( $event ) {
+				var twitter_message = $twitter.data( 'view-text' );
+				if ( $event ) {
+					var
+						twitter_pattern = $twitter.data( 'single-text' ),
+						event_title     = (
+							$.trim( $event.find( '.ai1ec-event-title' )
+								.contents().get(0).nodeValue
+							) ||
+							$event.find( '.ai1ec-load-event' )
+								.contents().get(0).nodeValue
+						),
+						event_venue     = $event.find( '.ai1ec-event-location' )
+							.text().replace( /@/, '' ),
+						event_date      = (
+							$.trim( $event.find( '.ai1ec-event-time')
+								.contents().get(0).nodeValue
+							) ||
+							$event.find( '.ai1ec-event-time' ).text()
+						).split( '@' )[0];
+
+					twitter_message = twitter_pattern
+						.replace( /\[title\]/, event_title )
+						.replace( /\[venue\]/, event_venue )
+						.replace( /\[date\]/, event_date )
+						// Remove multiple spaces.
+						.replace( /\s{2,}/g, ' ' );
+				}
 				$twitter.attr(
 					'href',
 					$twitter.data( 'url' ) + encodeURIComponent( shared_url )
-					+ '&text=' + encodeURIComponent( $twitter.data( 'text' ) )
+					+ '&text=' + encodeURIComponent( twitter_message )
+				);
+				$google.attr(
+					'href',
+					$google.data( 'url' ) + encodeURIComponent( shared_url )
 				);
 				$facebook.attr(
 					'href',
@@ -381,12 +409,11 @@ require(
 		$( document ).on( 'click', '.ai1ec-sas-action-share', function() {
 			$shorten.removeAttr( 'checked' );
 			// Find a link to the event details or use current URL.
-			shared_url = $( this )
-				.closest( '.ai1ec-popover, .ai1ec-event' )
-					.find( '.ai1ec-load-event:first' )
-						.attr( 'href' )
+			var $event = $( this ).closest( '.ai1ec-popover, .ai1ec-event' );
+			shared_url = $event.find( '.ai1ec-load-event:first' )
+				.attr( 'href' )
 				|| location.href;
-			update_buttons();
+			update_buttons( $event );
 			$multiple.hide();
 			return false;
 		} );

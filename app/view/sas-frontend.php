@@ -176,6 +176,14 @@ class Ai1ecsas_Frontend extends Ai1ec_Base {
 				'text_send'                   => __(
 					'Send',
 					AI1ECSAS_PLUGIN_NAME
+				),
+				'text_twitter_view'           => __(
+					'Check out these events',
+					AI1ECSAS_PLUGIN_NAME
+				),
+				'text_twitter_single'         => __(
+					'Check out [title] at [venue] on [date]',
+					AI1ECSAS_PLUGIN_NAME
 				)
 			),
 			false

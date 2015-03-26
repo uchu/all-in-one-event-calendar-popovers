@@ -50,7 +50,8 @@
 						{{ text_facebook }}
 					</a>
 					<a href="#" id="ai1ec-share-twitter" class="ai1ec-btn ai1ec-btn-primary"
-				       data-text="Check out these events"
+				       data-view-text="{{ text_twitter_view | e( 'html_attr' ) }}"
+				       data-single-text="{{ text_twitter_single | e( 'html_attr' ) }}"
 					   data-url="https://twitter.com/intent/tweet?url="
 					   target="_blank">
 						<i class="ai1ec-fa ai1ec-fa-twitter-square"></i>
