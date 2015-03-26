@@ -40,10 +40,7 @@ require(
 				// Toggle the visibility of the Saved Events button.
 				if ( ! count || $events_title.length ) {
 					$show_saved
-						.addClass( 'ai1ec-hidden' )
-						.removeClass( 'ai1ec-active' )
-						.find( 'a' )
-							.removeClass( 'ai1ec-active' );
+						.addClass( 'ai1ec-hidden' );
 				} else {
 					$show_saved.removeClass( 'ai1ec-hidden' );
 					$counter.text( '(' + count + ')' );
@@ -77,6 +74,10 @@ require(
 						.replace( /(\/|\|)time_limit~1/, '' );
 
 				$active_view_link.attr( 'href', href ).trigger( 'click' );
+				clear_saved_button();
+				return false;
+			},
+			clear_saved_button     = function() {
 				$show_saved
 					.removeClass( 'ai1ec-active' )
 					.find( 'a' )
@@ -85,8 +86,6 @@ require(
 						.find( 'i.ai1ec-fa-star' )
 							.removeClass( 'ai1ec-fa-star' )
 							.addClass( 'ai1ec-fa-star-o' );
-
-				return false;
 			},
 			current_view,
 			update_current_view    = function() {
@@ -113,7 +112,6 @@ require(
 				if ( $this.data( 'post_id' ) ) {
 					mark_saved( $( '.ai1ec-sas-action-star' ).not( $this ) );
 				}
-
 				if ( $this.hasClass( 'ai1ec-selected' ) ) {
 					if ( -1 === $.inArray( event_id, ids ) ) {
 						ids.push( event_id );
@@ -123,14 +121,16 @@ require(
 				}
 				localStorage.setItem( 'ai1ec_saved_events', ids.join( ',' ) );
 				update_counter();
+				// Update Saved events view if we are removing an item from it.
 				if (
 					! $this.hasClass( 'ai1ec-selected' ) &&
-					(
-						$show_saved.hasClass( 'ai1ec-active' ) ||
-						! get_saved_events_ids().length
-					)
+					$show_saved.hasClass( 'ai1ec-active' )
 				) {
 					$show_saved.find( 'a' ).trigger( 'click', true );
+				}
+				// Remove active class if there are no more saved events left.
+				if ( !get_saved_events_ids().length ) {
+					clear_saved_button();
 				}
 				return false;
 			},
