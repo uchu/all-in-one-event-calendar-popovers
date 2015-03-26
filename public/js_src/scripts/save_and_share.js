@@ -192,7 +192,7 @@ require(
 			// $event is passed only when sharing a signle event.
 			update_buttons         = function( $event ) {
 				var twitter_message = $twitter.data( 'view-text' );
-				if ( $event ) {
+				if ( $event && $event.length ) {
 					var
 						twitter_pattern = $twitter.data( 'single-text' ),
 						event_title     = (
