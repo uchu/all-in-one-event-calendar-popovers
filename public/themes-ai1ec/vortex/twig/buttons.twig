@@ -1,10 +1,14 @@
-<div class="ai1ec-sas-actions">
-	<a href="#" class="ai1ec-sas-action ai1ec-sas-action-star">
+<div class="ai1ec-sas-actions ai1ec-btn-group ai1ec-clearfix">
+	<a href="#" class="ai1ec-sas-action ai1ec-sas-action-star ai1ec-btn
+	   {% if single %}ai1ec-btn-sm{% else %}ai1ec-btn-xs{% endif %}
+	   ai1ec-btn-default">
 		<i class="ai1ec-fa ai1ec-fa-star-o"></i>
 		<span class="ai1ec-sas-save">{{ text_save }}</span>
 		<span class="ai1ec-sas-saved">{{ text_saved }}</span>
 	</a>
-	<a href="#" class="ai1ec-sas-action ai1ec-sas-action-share"
+	<a href="#" class="ai1ec-sas-action ai1ec-sas-action-share ai1ec-btn
+	   {% if single %}ai1ec-btn-sm{% else %}ai1ec-btn-xs{% endif %}
+	   ai1ec-btn-sm ai1ec-btn-default"
 	   data-toggle="ai1ec-modal"
 	   data-target="#ai1ec-share-modal">
 		<i class="ai1ec-fa ai1ec-fa-share"></i>

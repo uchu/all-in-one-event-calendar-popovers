@@ -27,20 +27,7 @@
 	}
 }
 .ai1ec-sas-actions {
-	text-align: center;
 	display: none;
-	a.ai1ec-sas-action {
-		border-radius: 4px;
-		.ai1ec-box-shadow( inset 0 0 1px fade( @dropdown-link-hover-color, 50% ) );
-		cursor: pointer;
-		display: inline-block;
-		font-size: 0.9em;
-		line-height: 2em;
-		margin: 1px 0;
-		padding: 0 0.5em;
-		text-transform: uppercase;
-		white-space: nowrap;
-	}
 	.ai1ec-sas-action:hover,
 	.ai1ec-active > .ai1ec-sas-action {
 		span {
@@ -53,7 +40,8 @@
 	.ai1ec-sas-actions {
 		display: block;
 		a {
-			width: 45%;
+			width: 50%;
+			text-align: center !important;
 		}
 	}
 }
@@ -68,6 +56,16 @@
 					display: none !important;
 				}
 			}
+		}
+	}
+}
+// Posterboard
+.ai1ec-posterboard-view,
+.ai1ec-popover  {
+	.ai1ec-sas-actions {
+		text-align: center;
+		.ai1ec-sas-action {
+			float: none;
 		}
 	}
 }

@@ -107,10 +107,10 @@ require(
 					),
 					ids         = get_saved_events_ids();
 
-				mark_saved ( $this );
+				mark_saved ( $this, ! $this.hasClass( 'ai1ec-selected' ) );
 				// Switch the state of duplicating buttons in details view.
 				if ( $this.data( 'post_id' ) ) {
-					mark_saved( $( '.ai1ec-sas-action-star' ).not( $this ) );
+					mark_saved( $( '.ai1ec-sas-action-star' ).not( $this ), $this.hasClass( 'ai1ec-selected' ) );
 				}
 				if ( $this.hasClass( 'ai1ec-selected' ) ) {
 					if ( -1 === $.inArray( event_id, ids ) ) {
@@ -308,11 +308,20 @@ require(
 					$show_saved.removeClass( 'ai1ec-hidden' );
 				}
 			},
-			mark_saved             = function( $button ) {
-				$button
-					.toggleClass( 'ai1ec-selected' )
-					.find( 'i.ai1ec-fa' )
-						.toggleClass( 'ai1ec-fa-star ai1ec-fa-star-o' );
+			mark_saved             = function( $button, saved ) {
+				if ( saved ) {
+					$button
+						.addClass( 'ai1ec-selected' )
+						.find( 'i.ai1ec-fa' )
+							.removeClass( 'ai1ec-fa-star-o' )
+							.addClass( 'ai1ec-fa-star' );
+				} else {
+					$button
+						.removeClass( 'ai1ec-selected' )
+						.find( 'i.ai1ec-fa' )
+							.addClass( 'ai1ec-fa-star-o' )
+							.removeClass( 'ai1ec-fa-star' );
+				}
 			},
 			clear_all_saved        = function() {
 				localStorage.removeItem( 'ai1ec_saved_events' );
@@ -377,12 +386,14 @@ require(
 							ids
 						)
 					) {
-						mark_saved( $single_event_button );
+						mark_saved( $single_event_button, true );
 					}
 				} else {
 					for ( var i = 0; i < ids.length; i++ ) {
+						var $button = $( '.ai1ec-event-id-' + ids[i] ).find( '.ai1ec-sas-action-star' )
 						mark_saved(
-							$( '.ai1ec-event-id-' + ids[i] ).find( '.ai1ec-sas-action-star' )
+							$button,
+							true
 						);
 					}
 				}
