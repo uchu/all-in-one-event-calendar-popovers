@@ -6,14 +6,11 @@
 			<i class="ai1ec-fa ai1ec-fa-star-o"></i>
 			<span>{{ text_saved_events }}</span>
 			<span class="ai1ec-sas-saved-events-count"></span>
-			<span class="ai1ec-sas-close-saved-events">
-				<i class="ai1ec-fa ai1ec-fa-times-circle"></i>
-			</span>
 		</a>
 	</div>
 	<div class="ai1ec-sas-saved-events-exit
 		{% if request.saved_events is empty %}ai1ec-hidden{% endif %}">
-		<a href="/" class="ai1ec-btn ai1ec-btn-primary ai1ec-btn-sm">
+		<a href="/" class="ai1ec-btn ai1ec-btn-primary ai1ec-btn-sm ai1ec-active">
 			<i class="ai1ec-fa ai1ec-fa-times-circle"></i>
 			<span>{{ text_exit }}
 				<span class="ai1ec-exit-title">

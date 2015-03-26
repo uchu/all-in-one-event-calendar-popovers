@@ -18,7 +18,6 @@ require(
 			},
 			$counter               = $( '.ai1ec-sas-saved-events-count' ),
 			$show_saved            = $( '.ai1ec-sas-show-saved' ),
-			$close_button          = $( '.ai1ec-sas-close-saved-events' ),
 			$url_input             = $( '#ai1ec-share-events-link' ),
 			$modal                 = $( '#timely-share-modal' ),
 			$shorten               = $( '#a1iec-shorten' ),
@@ -38,20 +37,34 @@ require(
 			$open                  = $( '#ai1ec-share-open' ),
 			update_counter         = function() {
 				var count = get_saved_events_ids().length;
+				// Toggle the visibility of the Saved Events button.
 				if ( ! count || $events_title.length ) {
-					$show_saved.addClass( 'ai1ec-hidden' );
+					$show_saved
+						.addClass( 'ai1ec-hidden' )
+						.removeClass( 'ai1ec-active' )
+						.find( 'a' )
+							.removeClass( 'ai1ec-active' );
 				} else {
 					$show_saved.removeClass( 'ai1ec-hidden' );
 					$counter.text( '(' + count + ')' );
 				}
 				$show_saved.find( 'a' ).attr( 'href', get_url( true ) );
 			},
-			show_saved             = function() {
-				$( this )
+			show_saved             = function( event, update ) {
+				var $this = $( this );
+				// Don't close if we just updated the list.
+				if ( ! update && $this.hasClass( 'ai1ec-active' ) ) {
+					close_saved();
+					return false;
+				}
+				$this
 					.addClass( 'ai1ec-active' )
 					.find( 'i.ai1ec-fa-star-o' )
 						.removeClass( 'ai1ec-fa-star-o' )
-						.addClass( 'ai1ec-fa-star' );
+						.addClass( 'ai1ec-fa-star' )
+						.end()
+					.find( 'a' )
+						.addClass( 'ai1ec-active' );
 
 				$exit_button.addClass( 'ai1ec-hidden' );
 				$events_title.remove();
@@ -67,6 +80,7 @@ require(
 				$show_saved
 					.removeClass( 'ai1ec-active' )
 					.find( 'a' )
+						.removeClass( 'ai1ec-active' )
 						.blur()
 						.find( 'i.ai1ec-fa-star' )
 							.removeClass( 'ai1ec-fa-star' )
@@ -111,9 +125,12 @@ require(
 				update_counter();
 				if (
 					! $this.hasClass( 'ai1ec-selected' ) &&
-					$show_saved.hasClass( 'ai1ec-active' )
+					(
+						$show_saved.hasClass( 'ai1ec-active' ) ||
+						! get_saved_events_ids().length
+					)
 				) {
-					$show_saved.find( 'a' ).trigger( 'click' );
+					$show_saved.find( 'a' ).trigger( 'click', true );
 				}
 				return false;
 			},
@@ -333,7 +350,7 @@ require(
 					update_counter();
 					if ( ids.length ) {
 						$( 'a.ai1ec-load-view', $show_saved )
-							.trigger( 'click' );
+							.trigger( 'click', true );
 					} else {
 						close_saved();
 					}
@@ -391,8 +408,6 @@ require(
 				}
 			};
 
-		// Set event handlers.
-		$( document ).on( 'click', '.ai1ec-sas-close-saved-events', close_saved );
 		// Handling a click on a Save button.
 		$( document ).on( 'click', '.ai1ec-sas-action-star', save );
 		$( document ).on( 'click', '.ai1ec-sas-saved-events', function() {
