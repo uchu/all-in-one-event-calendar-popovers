@@ -183,7 +183,7 @@ require(
 							: '|my_saved_events~1'
 						)
 						+ '|exact_date~1'
-						+'|post_ids~';
+						+ '|post_ids~';
 				}
 				url += get_saved_events_ids().join();
 				return url;
@@ -243,6 +243,10 @@ require(
 				shared_url = shared_url.replace( /action~(\w+)/, '' )
 					.replace( /\/\//g, '/')
 					.replace( /:\//g, '://');
+
+				if ( $( '.timely-widget' ).length ) {
+					shared_url = location.href;
+				}
 
 				update_buttons();
 				$shorten.removeAttr( 'checked' );
@@ -439,6 +443,22 @@ require(
 			shared_url = $event.find( '.ai1ec-load-event:first' )
 				.attr( 'href' )
 				|| location.href;
+
+			// Special URL pattern if used in a JS widget.
+			if ( $( this ).closest( '.timely-widget' ).length ) {
+				var
+					instance_id = $event.attr( 'class' )
+						.match( /ai1ec-event-instance-id-(\d+)/ )[1],
+					event_name  = function() {
+						var name = shared_url.match( /\/event\/([\w-]+)/ );
+						if ( ! name ) {
+							name = shared_url.match( /\?ai1ec_event=([\w-]+)&/ );
+						}
+						return name ? name[1] : undefined;
+					};
+					shared_url  = location.href + '#event|'
+						+ event_name() + '|' + instance_id;
+			}
 			update_buttons( $event );
 			$multiple.hide();
 			return false;
