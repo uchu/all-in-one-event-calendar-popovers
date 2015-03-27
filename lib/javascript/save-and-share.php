@@ -4,7 +4,7 @@
  * The class which adds Save and Share javascript.
  *
  * @author     Time.ly Network Inc.
- * @since      2.2.0
+ * @since      1.0
  *
  * @package    AI1ECSAS
  * @subpackage AI1ECSAS.Lib
@@ -20,14 +20,23 @@ class Ai1ecsas_Javascript_Save_And_Share extends Ai1ec_Base {
 	 * @return array
 	 */
 	public function add_js( array $files, $page_to_load ) {
-		if ( Ai1ec_Javascript_Controller::CALENDAR_PAGE_JS === $page_to_load ) {
-			$files[] = AI1ECSAS_PATH . '/public/js/pages/save_and_share.js';
+		$script_path = AI1ECSAS_PATH . DIRECTORY_SEPARATOR . 'public' .
+				DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'scripts' .
+				DIRECTORY_SEPARATOR;
+		$script      = $script_path . 'save_and_share.js';
+		switch ( $page_to_load ) {
+			case 'ai1ec_widget.js':
+				$script = array(
+					'url' => AI1ECSAS_URL . '/public/js/scripts/save_and_share.js',
+					'id'  => 'save_and_share'
+				);
+				break;
+			case 'main_widget.js':
+				$script = null;
+				break;
 		}
-		if ( 'main_widget.js' === $page_to_load ) {
-			$files[] = array(
-				'url' => AI1ECSAS_URL . '/public/js/pages/save_and_share.js',
-				'id'  => 'save_and_share'
-			);
+		if ( ! empty( $script ) ) {
+			$files[] = $script;
 		}
 		return $files;
 	}

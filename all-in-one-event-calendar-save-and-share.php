@@ -26,12 +26,10 @@ function ai1ec_save_and_share( Ai1ec_Registry_Object $registry ) {
 	$registry->get( 'controller.ai1ecsas' )->init( $registry );
 }
 
-
-// on activation all plugins are loaded but plugins_loaded has not been triggered.
+// On activation all plugins are loaded but plugins_loaded has not been triggered.
 function ai1ec_save_and_share_activation() {
 	global $ai1ec_registry;
-	// if no global registry is set, core is not active
-	// i could have checked for existance of extension class but class_exist calls are not reliable
+	// If no global registry is set, Core is not active.
 	if (
 		null === $ai1ec_registry ||
 		! ( $ai1ec_registry instanceof Ai1ec_Registry_Object )
@@ -47,7 +45,7 @@ function ai1ec_save_and_share_activation() {
 	require_once AI1ECSAS_PATH . DIRECTORY_SEPARATOR . 'app' .
 		DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR .
 		'ai1ecsas.php';
-	// no need to register this, we are redirected afterwards.
+	// No need to register this, we are redirected afterwards.
 	$controller = new Ai1ec_Controller_Ai1ecsas();
 	$method_exists = method_exists( $controller, 'check_compatibility' );
 	if ( ! $method_exists || ! $controller->check_compatibility( AI1EC_VERSION ) ) {
