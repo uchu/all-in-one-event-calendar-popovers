@@ -162,7 +162,8 @@ class Ai1ec_Controller_Ai1ecsas extends Ai1ec_Base_License_Controller {
 		$dispatcher->register_filter(
 			'ai1ec_additional_buttons',
 			array( 'view.sas-frontend', 'add_toolbar_buttons' ),
-			10
+			10,
+			2
 		);
 		// Append clear buttons to the bottom of views.
 		$dispatcher->register_filter(

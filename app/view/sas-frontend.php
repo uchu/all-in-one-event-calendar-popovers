@@ -57,14 +57,15 @@ class Ai1ecsas_Frontend extends Ai1ec_Base {
 	 *
 	 * @return string HTML for toolbar.
 	 */
-	public function add_toolbar_buttons( $buttons ) {
-		$loader   = $this->_registry->get( 'theme.loader' );
+	public function add_toolbar_buttons( $buttons, $args ) {
+		$loader = $this->_registry->get( 'theme.loader' );
 		$parser = $this->_registry->get( 'http.request.parser' );
 		$parser->parse();
-		$file     = $loader->get_file(
+		$file   = $loader->get_file(
 			'toolbar-buttons.twig',
 			array(
 				'request'            => $parser,
+				'data_type'          => $args['data_type'],
 				'text_saved_events'  => __( 'Your Saved Events', AI1ECSAS_PLUGIN_NAME ),
 				'text_exit'          => __( 'Exit', AI1ECSAS_PLUGIN_NAME ),
 				'text_share'         => __( 'Share these Events', AI1ECSAS_PLUGIN_NAME )

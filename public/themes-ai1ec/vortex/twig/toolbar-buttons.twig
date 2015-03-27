@@ -2,7 +2,7 @@
 	<div class="ai1ec-hidden ai1ec-sas-show-saved">
 		<a href="#" class="ai1ec-load-view ai1ec-btn
 		   ai1ec-btn-primary ai1ec-btn-sm"
-		   data-type="jsonp">
+		   {{ data_type | raw}}>
 			<i class="ai1ec-fa ai1ec-fa-star-o"></i>
 			<span>{{ text_saved_events }}</span>
 			<span class="ai1ec-sas-saved-events-count"></span>
