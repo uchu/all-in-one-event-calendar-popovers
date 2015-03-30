@@ -237,17 +237,19 @@ require(
 				$open.attr( 'href', shared_url );
 			},
 			update_url             = function() {
-				shared_url = $( '.ai1ec-views-dropdown .ai1ec-active a' ).attr( 'href' )
-					+ 'saved_events~' + encoded_title();
-
+				shared_url = $( '.ai1ec-views-dropdown .ai1ec-active a' ).attr( 'href' );
 				shared_url = shared_url.replace( /action~(\w+)/, '' )
 					.replace( /\/\//g, '/')
 					.replace( /:\//g, '://');
 
 				if ( $( '.timely-widget' ).length ) {
-					shared_url = location.href;
+					shared_url = location.href + '#view|'
+						+ shared_url
+							.replace( ai1ec_calendar.calendar_url, '' )
+							.replace( /\//g, '|' )
+							.split( '?' )[0];
 				}
-
+				shared_url += 'saved_events~' + encoded_title();
 				update_buttons();
 				$shorten.removeAttr( 'checked' );
 			},
@@ -294,7 +296,12 @@ require(
 			resolve_buttons_states = function() {
 				// Resolve the states of Share/Exit buttons.
 				if ( $events_title.length ) {
-					var title = $events_title.find( 'h1' ).text();
+					var
+						title    = $events_title.find( 'h1' ).text(),
+						exit_url = $( '.timely-widget' ).length
+							? location.href
+							: ai1ec_calendar.calendar_url;
+
 					// Limit the title so it doesn't make the exit button too wide.
 					if ( title.length > 12 ) {
 						title = $.trim( title.substring( 0, 12 ) ) + '&hellip;'
@@ -302,7 +309,7 @@ require(
 					$exit_button
 						.removeClass( 'ai1ec-hidden' )
 						.find( 'a' )
-							.attr( 'href', ai1ec_calendar.calendar_url )
+							.attr( 'href', exit_url )
 							.end()
 						.find( 'span > i' )
 							.html( title );
