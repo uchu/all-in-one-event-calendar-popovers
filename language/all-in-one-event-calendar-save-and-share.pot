@@ -3,10 +3,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: All-in-One Event Calendar Save and Share by Time.ly "
-"0.0.11\n"
+"0.0.11.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/all-in-one-event-calendar-"
 "save-and-share\n"
-"POT-Creation-Date: 2015-03-26 16:24:53+00:00\n"
+"POT-Creation-Date: 2015-03-30 15:46:08+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,11 +14,11 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: all-in-one-event-calendar-save-and-share.php:40
+#: all-in-one-event-calendar-save-and-share.php:38
 msgid "All In One Event Calendar must be installed to activate extensions"
 msgstr ""
 
-#: all-in-one-event-calendar-save-and-share.php:54
+#: all-in-one-event-calendar-save-and-share.php:52
 msgid ""
 "Could not activate the Save and Share add-on: All-in-One Event Calendar "
 "version %s or higher is required."
@@ -28,13 +28,117 @@ msgstr ""
 msgid "Save and Share"
 msgstr ""
 
+#: app/view/sas-frontend.php:23 app/view/sas-frontend.php:44
+msgid "Save"
+msgstr ""
+
+#: app/view/sas-frontend.php:24 app/view/sas-frontend.php:45
+msgid "Saved"
+msgstr ""
+
+#: app/view/sas-frontend.php:25 app/view/sas-frontend.php:46
+msgid "Share"
+msgstr ""
+
+#: app/view/sas-frontend.php:69
+msgid "Your Saved Events"
+msgstr ""
+
+#: app/view/sas-frontend.php:70
+msgid "Exit"
+msgstr ""
+
+#: app/view/sas-frontend.php:71
+msgid "Share these Events"
+msgstr ""
+
+#: app/view/sas-frontend.php:89
+msgid "Clear Expired Events"
+msgstr ""
+
+#: app/view/sas-frontend.php:93
+msgid "Clear all Saved Events"
+msgstr ""
+
+#: app/view/sas-frontend.php:113
+msgid "Share Event"
+msgstr ""
+
+#: app/view/sas-frontend.php:117
+msgid "s"
+msgstr ""
+
+#: app/view/sas-frontend.php:121
+msgid "Step 1."
+msgstr ""
+
+#: app/view/sas-frontend.php:125
+msgid "Step 2."
+msgstr ""
+
+#: app/view/sas-frontend.php:129
+msgid "Give your custom calendar a title."
+msgstr ""
+
+#: app/view/sas-frontend.php:133
+msgid "Share or bookmark this link or click on a button below:"
+msgstr ""
+
+#: app/view/sas-frontend.php:137
+msgid "ex. Custom Calendar"
+msgstr ""
+
+#: app/view/sas-frontend.php:141
+msgid "Shorten"
+msgstr ""
+
+#: app/view/sas-frontend.php:145
+msgid "Open"
+msgstr ""
+
+#: app/view/sas-frontend.php:149
+msgid "Email"
+msgstr ""
+
+#: app/view/sas-frontend.php:153
+msgid "Facebook"
+msgstr ""
+
+#: app/view/sas-frontend.php:157
+msgid "Twitter"
+msgstr ""
+
+#: app/view/sas-frontend.php:161
+msgid "Google+"
+msgstr ""
+
+#: app/view/sas-frontend.php:165 app/view/sas-frontend.php:181
+msgid "Check out these events"
+msgstr ""
+
+#: app/view/sas-frontend.php:169
+msgid "Click on this link to see some cool events:"
+msgstr ""
+
+#: app/view/sas-frontend.php:173
+msgid "Enter email address"
+msgstr ""
+
+#: app/view/sas-frontend.php:177
+msgid "Send"
+msgstr ""
+
+#: app/view/sas-frontend.php:185
+msgid "Check out [title] at [venue] on [date]"
+msgstr ""
+
 #. Plugin Name of the plugin/theme
 msgid "All-in-One Event Calendar Save and Share by Time.ly"
 msgstr ""
 
-#. #-#-#-#-#  all-in-one-event-calendar-save-and-share.pot (All-in-One Event Calendar Save and Share by Time.ly 0.0.11)  #-#-#-#-#
+#. #-#-#-#-#  all-in-one-event-calendar-save-and-share.pot (All-in-One Event Calendar Save and Share by Time.ly 0.0.11.1)  #-#-#-#-#
 #. Plugin URI of the plugin/theme
-#. #-#-#-#-#  all-in-one-event-calendar-save-and-share.pot (All-in-One Event Calendar Save and Share by Time.ly 0.0.11)  #-#-#-#-#
+#. #-#-#-#-#  all-in-one-event-calendar-save-and-share.pot (All-in-One Event Calendar Save and Share by Time.ly 0.0.11.1)  #-#-#-#-#
 #. Author URI of the plugin/theme
 msgid "http://time.ly/"
 msgstr ""
