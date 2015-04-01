@@ -3,14 +3,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: All-in-One Event Calendar Save and Share by Time.ly "
-"0.0.11.1\n"
+"0.0.11.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/all-in-one-event-calendar-"
 "save-and-share\n"
-"POT-Creation-Date: 2015-03-30 15:46:08+00:00\n"
+"POT-Creation-Date: 2015-04-01 13:37:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-03-30 17:46+0200\n"
+"PO-Revision-Date: 2015-04-01 15:37+0200\n"
 "Last-Translator: Timely <support@time.ly>\n"
 "Language-Team:\n"
 
@@ -138,9 +138,9 @@ msgstr "Check out [title] at [venue] on [date]"
 msgid "All-in-One Event Calendar Save and Share by Time.ly"
 msgstr "All-in-One Event Calendar Save and Share by Time.ly"
 
-#. #-#-#-#-#  all-in-one-event-calendar-save-and-share.pot (All-in-One Event Calendar Save and Share by Time.ly 0.0.11.1)  #-#-#-#-#
+#. #-#-#-#-#  all-in-one-event-calendar-save-and-share.pot (All-in-One Event Calendar Save and Share by Time.ly 0.0.11.2)  #-#-#-#-#
 #. Plugin URI of the plugin/theme
-#. #-#-#-#-#  all-in-one-event-calendar-save-and-share.pot (All-in-One Event Calendar Save and Share by Time.ly 0.0.11.1)  #-#-#-#-#
+#. #-#-#-#-#  all-in-one-event-calendar-save-and-share.pot (All-in-One Event Calendar Save and Share by Time.ly 0.0.11.2)  #-#-#-#-#
 #. Author URI of the plugin/theme
 msgid "http://time.ly/"
 msgstr "http://time.ly/"

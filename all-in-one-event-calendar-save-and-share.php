@@ -5,14 +5,14 @@
  * Description: Save and share events in All-in-One Event Calendar by Time.ly
  * Author: Time.ly Network Inc.
  * Author URI: http://time.ly/
- * Version: 0.0.11.1
+ * Version: 0.0.11.2
  * Text Domain: all-in-one-event-calendar-save-and-share
  * Domain Path: /language
  */
 
 define( 'AI1ECSAS_PLUGIN_NAME', 'all-in-one-event-calendar-save-and-share' );
 define( 'AI1ECSAS_PATH',        dirname( __FILE__ ) );
-define( 'AI1ECSAS_VERSION',     '0.0.11.1' );
+define( 'AI1ECSAS_VERSION',     '0.0.11.2' );
 define( 'AI1ECSAS_URL',         plugins_url( '', __FILE__ ) );
 define( 'AI1ECSAS_FILE',        __FILE__ );
 
