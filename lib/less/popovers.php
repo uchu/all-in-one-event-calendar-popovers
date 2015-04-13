@@ -1,15 +1,15 @@
 <?php
 
 /**
- * The class which adds LESS code for Save and Share.
+ * The class which adds LESS code for Popovers.
  *
  * @author     Time.ly Network Inc.
  * @since      1.0
  *
- * @package    AI1ECSAS
- * @subpackage AI1ECSAS.Lib
+ * @package    AI1ECP
+ * @subpackage AI1ECP.Lib
  */
-class Ai1ec_Less_Save_And_Share extends Ai1ec_Base {
+class Ai1ec_Less_Popovers extends Ai1ec_Base {
 
 	/**
 	 * Add LESS files to parse.
@@ -19,7 +19,7 @@ class Ai1ec_Less_Save_And_Share extends Ai1ec_Base {
 	 * @return array
 	 */
 	public function add_less_files( array $files ) {
-		$files[] = 'sas.less';
+		$files[] = 'popovers.less';
 		return $files;
 	}
 }

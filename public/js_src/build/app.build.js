@@ -8,7 +8,7 @@
 	// optimize         : 'none', // Uncomment this line if you need to debug.
 	modules             : [
 		{
-			name: 'scripts/save_and_share'
+			name: 'scripts/popovers'
 		}
 	],
 	namespace: 'timely', // Set the namespace.

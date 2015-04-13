@@ -1,18 +1,18 @@
 <?php
 
 /**
- * The class which adds Save and Share javascript.
+ * The class which adds Popovers javascript.
  *
  * @author     Time.ly Network Inc.
  * @since      1.0
  *
- * @package    AI1ECSAS
- * @subpackage AI1ECSAS.Lib
+ * @package    AI1ECP
+ * @subpackage AI1ECP.Lib
  */
-class Ai1ecsas_Javascript_Save_And_Share extends Ai1ec_Base {
+class Ai1ecsas_Javascript_Popovers extends Ai1ec_Base {
 
 	/**
-	 * Adds Save and Share javascript
+	 * Adds Popovers javascript
 	 *
 	 * @param array  $files
 	 * @param string $page_to_load
@@ -20,15 +20,15 @@ class Ai1ecsas_Javascript_Save_And_Share extends Ai1ec_Base {
 	 * @return array
 	 */
 	public function add_js( array $files, $page_to_load ) {
-		$script_path = AI1ECSAS_PATH . DIRECTORY_SEPARATOR . 'public' .
+		$script_path = AI1ECP_PATH . DIRECTORY_SEPARATOR . 'public' .
 				DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'scripts' .
 				DIRECTORY_SEPARATOR;
-		$script      = $script_path . 'save_and_share.js';
+		$script      = $script_path . 'popovers.js';
 		switch ( $page_to_load ) {
 			case 'ai1ec_widget.js':
 				$script = array(
-					'url' => AI1ECSAS_URL . '/public/js/scripts/save_and_share.js',
-					'id'  => 'save_and_share'
+					'url' => AI1ECP_URL . '/public/js/scripts/popovers.js',
+					'id'  => 'popovers'
 				);
 				break;
 			case 'main_widget.js':
