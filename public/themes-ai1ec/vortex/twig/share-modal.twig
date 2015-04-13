@@ -1,0 +1,91 @@
+<div class="ai1ec-modal ai1ec-fade" id="ai1ec-share-modal" tabindex="-1"
+	 role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="ai1ec-modal-dialog ai1ec-modal-dialog-center">
+		<div class="ai1ec-modal-content">
+			<div class="ai1ec-modal-body">
+				<h3>{{ text_share_event }}<span class="ai1ec-share-multiple"
+					>{{ text_multiple }}</span>
+				</h3>
+				<p class="ai1ec-share-multiple">
+					<strong>{{ text_step_1 }}</strong>
+					{{ text_step_1_title }}
+				</p>
+				<p class="ai1ec-share-multiple">
+					<input type="text" id="ai1ec-share-events-title"
+						   class="ai1ec-form-control"
+						   placeholder="{{ text_custom_calendar | e( 'html_attr' ) }}"
+						   maxlength="60">
+				</p>
+				<p>
+					<strong class="ai1ec-share-multiple">{{ text_step_2 }}</strong>
+					{{ text_step_2_title }}
+				</p>
+				<div class="ai1ec-row">
+					<div class="ai1ec-col-sm-10">
+						<input type="text" id="ai1ec-share-events-link"
+							   class="ai1ec-form-control" value="" readonly>
+					</div>
+					<div class="ai1ec-col-sm-2">
+						<label for="a1iec-shorten">
+							<input type="checkbox" id="a1iec-shorten"
+								   name="ai1ec-shorten">
+							{{ text_shorten }}
+						</label>
+					</div>
+				</div>
+				<p class="ai1ec-share-dialog-buttons">
+					<a href="#" id="ai1ec-share-open" class="ai1ec-btn ai1ec-btn-primary"
+					   target="_blank">
+						<i class="ai1ec-fa ai1ec-fa-external-link-square"></i>
+						{{ text_open }}
+					</a>
+					<a href="#" id="ai1ec-share-email" class="ai1ec-btn ai1ec-btn-primary">
+						<i class="ai1ec-fa ai1ec-fa-envelope"></i>
+						{{ text_email }}
+					</a>
+					<a href="#" id="ai1ec-share-facebook" class="ai1ec-btn ai1ec-btn-primary"
+					   data-url="http://www.facebook.com/sharer.php?s=100"
+					   target="_blank">
+						<i class="ai1ec-fa ai1ec-fa-facebook-square"></i>
+						{{ text_facebook }}
+					</a>
+					<a href="#" id="ai1ec-share-twitter" class="ai1ec-btn ai1ec-btn-primary"
+				       data-view-text="{{ text_twitter_view | e( 'html_attr' ) }}"
+				       data-single-text="{{ text_twitter_single | e( 'html_attr' ) }}"
+					   data-url="https://twitter.com/intent/tweet?url="
+					   target="_blank">
+						<i class="ai1ec-fa ai1ec-fa-twitter-square"></i>
+						{{ text_twitter }}
+					</a>
+					<a href="#" id="ai1ec-share-google" class="ai1ec-btn ai1ec-btn-primary"
+					   data-url="https://plus.google.com/share?url="
+					   target="_blank">
+						<i class="ai1ec-fa ai1ec-fa-google-plus-square"></i>
+						{{ text_google_plus }}
+					</a>
+				</p>
+				<div class="ai1ec-email-form ai1ec-hidden">
+					<form class="ai1ec-form-inline" enctype="text/plain"
+						  action="mailto:" target="_blank"
+						  method="get">
+						<div class="ai1ec-form-group ai1ec-clearfix">
+							<input type="hidden" name="subject"
+								   value="{{ text_checkout_these_events | e( 'html_attr' ) }}">
+							<input type="hidden" name="body"
+								   id="ai1ec-share-email-body" value=""
+								   data-body="{{ text_click_on_this_link | e( 'html_attr' ) }}">
+							<input type="email" id="ai1ec-share-email-field"
+								   class="ai1ec-form-control"
+								   placeholder="{{ text_enter_email | e( 'html_attr' ) }}"
+								   value="">
+							<button href="#" id="ai1ec-share-email-send"
+								    class="ai1ec-btn ai1ec-btn-primary">
+								{{ text_send }}
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
