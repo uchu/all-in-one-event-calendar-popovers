@@ -1,165 +1,23 @@
 //
 // @file
 //
-// Adds LESS rules for Save and Share.
+// Adds LESS rules for Popovers.
 //
 
 @import "bootstrap/mixins.less";
 
-// Save and Share buttons.
-.ai1ec-sas-action-star {
-	.ai1ec-sas-saved span {
+.ai1ec-bs-popover-item {
+	@media ( max-width: @screen-xs ) {
 		display: none !important;
 	}
-	&.ai1ec-selected {
-		.ai1ec-sas-save span {
-			display: none !important;
-		}
-		.ai1ec-sas-saved  span {
-			display: inline !important;
-		}
-	}
-}
-.ai1ec-event:hover,
-.ai1ec-popover {
-	.ai1ec-sas-actions {
-		display: block;
-	}
-}
-.ai1ec-sas-actions {
-	display: none;
-	.ai1ec-sas-action:hover,
-	.ai1ec-active > .ai1ec-sas-action {
-		span {
-			display: inline;
-		}
-	}
-}
-// Single event page
-.single-ai1ec_event {
-	.ai1ec-sas-actions {
-		display: block;
-		a {
-			width: 50%;
-			text-align: center !important;
-		}
-	}
-}
-// Agenda
-.ai1ec-agenda-view {
-	.ai1ec-event {
-		.ai1ec-sas-actions {
-			float: right;
-			margin: 0 10px;
-			@media ( max-width: @screen-md ) {
-				span {
-					display: none !important;
-				}
-			}
-		}
-	}
-}
-// Posterboard
-.ai1ec-posterboard-view,
-.ai1ec-popover  {
-	.ai1ec-sas-actions {
-		text-align: center;
-		.ai1ec-sas-action {
-			float: none;
-		}
-	}
-}
-// Stream view.
-.ai1ec-stream-view {
-	.ai1ec-sas-actions {
+	.ai1ec-dismiss {
 		float: right;
-		margin: 0 10px;
-		position: absolute;
-		right: 0px;
-		@media ( max-width: @screen-md ) {
-			span {
-				display: none !important;
-			}
-		}
+		cursor: pointer  !important;
 	}
-	.post-edit-link {
-		margin-top: 28px;
+	z-index: 999;
+	h3 {
+		font-size: 13px;
+		margin: 0;
 	}
-}
-// Views with popovers.
-.ai1ec-popup {
-	.ai1ec-sas-actions {
-		margin: 5px 0;
-	}
-}
-// Saved Events
-.ai1ec-sas-save-and-share-buttons {
-	margin: 4px;
-	margin-right: -4px;
-	> div {
-		margin-left: 4px;
-	}
-	.ai1ec-sas-saved-events {
-		float: left;
-		@media ( max-width: @screen-md ) {
-			span {
-				display: none;
-			}
-		}
-	}
-	.ai1ec-sas-show-saved {
-		float: left;
-		@media ( max-width: @screen-md ) {
-			span {
-				display: none;
-			}
-		}
-	}
-	.ai1ec-sas-saved-events-exit {
-		float: left;
-		.ai1ec-exit-title {
-			font-style: italic;
-		}
-		@media ( max-width: @screen-md ) {
-			span {
-				display: none;
-			}
-		}
-	}
-}
-// Sharing dialog
-#ai1ec-share-modal {
-	a:hover,
-	a:active,
-	a:focus {
-		color: #fff;
-	}
-	label {
-		font-weight: normal;
-	}
-	.ai1ec-share-dialog-buttons {
-		margin-top: 10px;
-	}
-	.ai1ec-form-inline .ai1ec-form-control {
-		@media ( min-width: @screen-sm ) {
-			display: inline-block;
-			width: auto;
-			vertical-align: middle;
-		}
-	}
-}
-.ai1ec-sas-clear-saved-buttons {
-	text-align: center;
-	margin: 20px 0;
-	a {
-		background: red;
-		color: white !important;
-		margin: 3px;
-		&:hover {
-			background: #d00;
-		}
-		i {
-			font-size: 15px;
-		}
-	}
+	margin: 0;
 }

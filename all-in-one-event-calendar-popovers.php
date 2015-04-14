@@ -23,7 +23,7 @@ function ai1ec_popovers( Ai1ec_Registry_Object $registry ) {
 		false,
 		basename( AI1ECP_PATH ) . DIRECTORY_SEPARATOR . 'language'
 	);
-	$registry->get( 'controller.ai1ecpop' )->init( $registry );
+	$registry->get( 'controller.ai1ecp' )->init( $registry );
 }
 
 // On activation all plugins are loaded but plugins_loaded has not been triggered.
@@ -44,7 +44,7 @@ function ai1ec_popovers_activation() {
 	}
 	require_once AI1ECP_PATH . DIRECTORY_SEPARATOR . 'app' .
 		DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR .
-		'ai1ecpop.php';
+		'ai1ecp.php';
 	// No need to register this, we are redirected afterwards.
 	$controller = new Ai1ec_Controller_Ai1ecsas();
 	$method_exists = method_exists( $controller, 'check_compatibility' );
