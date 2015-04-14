@@ -1,10 +1,9 @@
 require(
 	[
 		'jquery_timely',
-		'domReady',
-		'ai1ec_calendar'
+		'domReady'
 	],
-	function( $, domReady, ai1ec_calendar ) {
+	function( $, domReady ) {
 	'use strict'; // jshint ;_;
 
 	/**
@@ -45,10 +44,9 @@ require(
 			}
 		} );
 			
-		$( document ).on( 'click',
-			'.ai1ec-dismiss',
+		$( document ).on( 'click', '.ai1ec-dismiss',
 			function() {
-				var id = $( this ).data( 'popover-id' )
+				var id = $( this ).data( 'popover-id' );
 				$( '[data-popover-id="' + id + '"]' )
 					.removeClass( 'ai1ec-bs-popover-enabled' )
 					.popover( 'destroy' );
