@@ -1,5 +1,1 @@
-*.log
-.htaccess
-sitemap.xml
-sitemap.xml.gz
 lib/bootstrap/loader-map.php
