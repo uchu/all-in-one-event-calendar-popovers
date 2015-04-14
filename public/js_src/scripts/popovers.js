@@ -21,8 +21,8 @@ require(
 		// Add popovers
 		$( '.ai1ec-bs-popover' ).each( function() {
 			var
-				$this = $( this ),
-				popover_id = $( this ).data( 'popover-id' );
+				$this      = $( this ),
+				popover_id = $this.data( 'popover-id' );
 
 			if ( ! localStorage.getItem( 'ai1ec-popover-' + popover_id ) ) {
 				$this.popover( {
